@@ -1,16 +1,26 @@
-
-
 @mixin flexCenter{
     display:flex;
     justify-content: space-around;
     align-items: center;
 }
 
+
+$colors:(
+    "red":#fa4848,
+    "green":#5eff74
+);
+
+
+
 body{
     background-color: #000;
 }
-
 .main{
+    @include flexCenter;
+    flex-direction: column;
+}
+
+.lighting-area{
     @include flexCenter;
     margin:auto;
     width:900px;
@@ -23,5 +33,14 @@ body{
     background-color: #fff;
 }
 
-// test
+
+.light:nth-child(odd){
+    background-color: map-get($colors,"red");
+}
+.light:nth-child(even){
+    background-color: map-get($colors,"green");
+}
+
+
+
   
