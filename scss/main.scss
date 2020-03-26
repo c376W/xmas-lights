@@ -4,17 +4,43 @@
     align-items: center;
 }
 
+@mixin btnEffect{
+    width:300px;
+    height:50px;
+    font-size: 30px;
+    border:none;
+    outline:none;
+    border-radius: 20px;
+    font-family: 'Baloo 2', cursive;
+    cursor: pointer;
+    background:linear-gradient(45deg,#de8781,#c3e3bc);
+}
+@function lightColor($even_odd){
+    @if($even_odd=='even'){
+        @return map_get($colors,"green");
+    }
+    @else{
+        @return map_get($colors,"red");
+    }
+}
+
 
 $colors:(
     "red":#fa4848,
     "green":#5eff74
 );
 
-
-
 body{
     background-color: #000;
 }
+
+button{
+    @include btnEffect;
+}
+button:hover{
+    background:linear-gradient(45deg,#c3e3bc,#de8781);
+}
+
 .main{
     @include flexCenter;
     flex-direction: column;
@@ -35,11 +61,40 @@ body{
 
 
 .light:nth-child(odd){
-    background-color: map-get($colors,"red");
+    background-color: lightColor('odd');
+    animation-name: lighton;
+    animation-duration:1s;
+    animation-iteration-count:infinite;
+}
+.anime-lighton{
+    animation-name: lighton;
+    animation-duration:1s;
+    animation-iteration-count:infinite;
 }
 .light:nth-child(even){
-    background-color: map-get($colors,"green");
+    background-color: lightColor('odd');
+    animation-name: lighton;
+    animation-duration:1s;
+    animation-delay: 0.5s;
+    animation-iteration-count:infinite;
+    
 }
+
+@keyframes lighton{
+    0%{
+        background-color: map-get($colors, "red");
+        
+    }
+    50%{
+        background-color: map-get($colors, "green");
+    }
+    100%{
+        background-color: map-get($colors, "red");
+    }
+}
+
+
+
 
 
 

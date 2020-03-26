@@ -2,6 +2,22 @@ body {
   background-color: #000;
 }
 
+button {
+  width: 300px;
+  height: 50px;
+  font-size: 30px;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  font-family: 'Baloo 2', cursive;
+  cursor: pointer;
+  background: linear-gradient(45deg, #de8781, #c3e3bc);
+}
+
+button:hover {
+  background: linear-gradient(45deg, #c3e3bc, #de8781);
+}
+
 .main {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -40,9 +56,56 @@ body {
 
 .light:nth-child(odd) {
   background-color: #fa4848;
+  -webkit-animation-name: lighton;
+          animation-name: lighton;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.anime-lighton {
+  -webkit-animation-name: lighton;
+          animation-name: lighton;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
 }
 
 .light:nth-child(even) {
-  background-color: #5eff74;
+  background-color: #fa4848;
+  -webkit-animation-name: lighton;
+          animation-name: lighton;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes lighton {
+  0% {
+    background-color: #fa4848;
+  }
+  50% {
+    background-color: #5eff74;
+  }
+  100% {
+    background-color: #fa4848;
+  }
+}
+
+@keyframes lighton {
+  0% {
+    background-color: #fa4848;
+  }
+  50% {
+    background-color: #5eff74;
+  }
+  100% {
+    background-color: #fa4848;
+  }
 }
 /*# sourceMappingURL=main.css.map */
